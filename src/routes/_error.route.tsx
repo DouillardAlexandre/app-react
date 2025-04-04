@@ -3,12 +3,10 @@
   * 
 **/
 
-import React from "react";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 import Wrapper from "../components/wrapper";
 import Plate from "../components/plate";
 import Button from "../components/button";
-import TestWidget from "../widgets/test.widget";
 
 function ErrorRoute(){
   
@@ -24,15 +22,11 @@ function ErrorRoute(){
 
       <Plate>
 
-
-        <TestWidget/>
-
         {code &&
         <div>{"error : " + code}</div>
         }
 
         <Button title={"home"} onClick={() => navigate("/u/me")} />
-
 
       </Plate>
 

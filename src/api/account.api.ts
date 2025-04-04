@@ -1,42 +1,7 @@
-import { Account } from "../classes/account.class"
 
 //API
-
-export const accountCheckAvailability = (alias:string, email:string) => ({
-  type : "API",
-  payload : {
-    method : "GET",
-    url : "/public/account/availability",
-    data : {
-      alias,
-      email
-    }
-  }
-})
-
-export const accountDestroy = (id: string) => ({
-  type : "API",
-  payload : {
-    method : "DELETE",
-    url : "/account/" + id
-  }
-})
-
-export const accountFetch = (search: string, limit:number, offset: number) => ({
-  type : "API",
-  payload : {
-    method : "GET",
-    url : "/public/accounts",
-    data : {
-      search,
-      limit,
-      offset
-    }
-  }
-})
-
-export const accountFetchOne = (id: string) => ({
-  type : "API",
+export const accountFetchOne = (type: "JAVA" | "NODE", id: string) => ({
+  type,
   payload : {
     method : "GET",
     url : "/public/account",
@@ -46,13 +11,15 @@ export const accountFetchOne = (id: string) => ({
   }
 })
 
-export const accountUpdate = (account: Account) => ({
-  type : "API",
+export const accountFetch = (type: "JAVA" | "NODE", search?: string, limit?: number, offset?: number) => ({
+  type,
   payload : {
-    method : "POST",
-    url : "/account/update",
+    method : "GET",
+    url : "/public/accounts",
     data : {
-      account
+      search,
+      limit,
+      offset
     }
   }
 })

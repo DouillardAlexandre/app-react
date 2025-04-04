@@ -1,13 +1,6 @@
 import { EnhancedStore, Reducer, combineReducers, configureStore } from '@reduxjs/toolkit';
 
-import _sessionReducer, { _sessionSlice } from './_session.slice';
 import accountReducer, { accountSlice } from './account.slice';
-import cardReducer, { cardSlice } from './card.slice';
-import cardTemplateReducer, { cardTemplateSlice } from './card-template.slice';
-import collectionReducer, { collectionSlice } from './collection.slice';
-import discountReducer, { discountSlice } from './discount.slice';
-import packReducer, { packSlice } from './pack.slice';
-import packTemplateReducer, { packTemplateSlice } from './pack-template.slice';
 
 import storage from 'redux-persist/lib/storage';
 //import storageSession from 'redux-persist/lib/storage/session'
@@ -20,28 +13,13 @@ const persistConfig: any = {
 }
 
 const rootReducer: Reducer = combineReducers({
-  //[api.reducerPath]: api.reducer,
-  _session: _sessionReducer,
   account: accountReducer,
-  card: cardReducer,
-  cardTemplate: cardTemplateReducer,
-  collection: collectionReducer,
-  discount: discountReducer,
-  pack: packReducer,
-  packTemplate: packTemplateReducer
 })
 
 const persistedReducer: Reducer = persistReducer(persistConfig, rootReducer)
 
 const preloadedState: any = {
-  _session: _sessionSlice.getInitialState(),
   account: accountSlice.getInitialState(),
-  card: cardSlice.getInitialState(),
-  cardTemplate: cardTemplateSlice.getInitialState(),
-  collection: collectionSlice.getInitialState(),
-  discount: discountSlice.getInitialState(),
-  pack: packSlice.getInitialState(),
-  packTemplate: packTemplateSlice.getInitialState(),
 }
 
 export const store: EnhancedStore = configureStore({

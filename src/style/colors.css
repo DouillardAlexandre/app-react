@@ -1,19 +1,11 @@
 
 :root{
 
-  --main-blue: #423698;
   --main-light: #F9FBFC;
   --main-dark: #384354;
 
-  --clear-light: #ffffff;
-  --clear-blue: #7461ca;
-  --clear-dark: #636e80;
-
   --obscure-light: #c6c8c9;
-  --obscure-blue: #000f69;
   --obscure-dark: #111c2b;
-
-  --selected: #cdb412;
   
 }
 
@@ -21,22 +13,12 @@
 
 /** light theme **/
 :root{
-  --background-sparse: var(--obscure-light);
   --background-color: var(--main-light);
-  --background-intense: var(--clear-light);
-
-  --font-sparse: var(--clear-dark);
-  --font-color: var(--main-dark);
-  --font-intense: var(--obscure-dark);
+  --font-color: var(--obscure-dark);
 }
  
 /** dark theme **/
 [data-theme="dark"]{
-  --background-sparse: var(--clear-dark);
   --background-color: var(--main-dark);
-  --background-intense: var(--obscure-dark);
-
-  --font-sparse: var(--clear-light);
-  --font-color: var(--main-light);
-  --font-intense: var(--obscure-light);
+  --font-color: var(--obscure-light);
 }
