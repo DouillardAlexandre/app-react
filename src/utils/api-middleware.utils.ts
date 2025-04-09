@@ -8,7 +8,7 @@
 import axios, { AxiosInstance } from 'axios'
 
 const instanceJava: AxiosInstance = axios.create({
-  baseURL: process.env.REACT_APP_URL + ":" + process.env.REACT_APP_JAVA_PORT,
+  baseURL: process.env.REACT_APP_URL + ":" + process.env.REACT_APP_PORT_JAVA,
   timeout: 6000,
   headers: {
     "Accept": "application/json",
@@ -17,7 +17,7 @@ const instanceJava: AxiosInstance = axios.create({
 })
 
 const instanceNode: AxiosInstance = axios.create({
-  baseURL: process.env.REACT_APP_URL + ":" + process.env.REACT_APP_NODE_PORT,
+  baseURL: process.env.REACT_APP_URL + ":" + process.env.REACT_APP_PORT_NODE,
   timeout: 6000,
   headers: {
     "Accept": "application/json",
@@ -50,7 +50,7 @@ function processError(errorResponse: any){
   return code
 }
 
-const apiMiddleware = () => (next: Function) => (action: any) => {
+const apiMiddleware: Function = () => (next: Function) => (action: any) => {
 
   return new Promise(function(resolve) {
     next(action)
@@ -72,19 +72,18 @@ const apiMiddleware = () => (next: Function) => (action: any) => {
         //toast("Api middleware error " + data.error, { type : 'error' });
       }
       resolve(data); 
-    }).catch(error => { 
+    }).catch((error: any) => { 
       if (error.response){
-
 
         const code: string = processError(error.response)
 
         //toast("Api middleware error " + code, error.response.data.details, { type : 'error' });
-        resolve({ error : code })
+        resolve({ error: code })
 
       }
       else{
         //toast("Api middleware error network", { type : 'error' });
-        resolve({ error : 'network', details : error });
+        resolve({ error: 'network', details: error });
       }
     })
 

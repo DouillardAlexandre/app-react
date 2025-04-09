@@ -31,7 +31,7 @@ function TestWidget(props: Props){
   }, [])
 
   async function getAccount(){
-    const response : any = await accountFetch(props.mode)
+    const response: any = await dispatch(accountFetch(props.mode))
     if(response.accounts.length > 0){
       dispatch(accountGet(response.accounts))
     }

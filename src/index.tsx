@@ -1,4 +1,4 @@
-import React, {StrictMode} from "react"
+import {StrictMode} from "react"
 import {Root, createRoot} from "react-dom/client"
 import App from "./App"
 import reportWebVitals from "./reportWebVitals"
@@ -9,9 +9,9 @@ import {persistor, store} from "./redux/_store"
 import {PersistGate} from "redux-persist/integration/react"
 
 //styles
-import "./style/index.css"
-import "./style/colors.css"
-import "./style/style.css"
+import "@/style/index.css"
+import "@/style/colors.css"
+import "@/style/style.css"
 
 const root: Root = createRoot(
   document.getElementById("root") as HTMLElement

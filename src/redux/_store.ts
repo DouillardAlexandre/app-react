@@ -24,7 +24,7 @@ const preloadedState: any = {
 
 export const store: EnhancedStore = configureStore({
   reducer: persistedReducer,
-  middleware: (getDefaultMiddleware: any) =>
+  middleware: (getDefaultMiddleware: Function) =>
     getDefaultMiddleware({
       /*thunk: {
         extraArgument: apiMiddleware,
